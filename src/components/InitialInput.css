@@ -1,0 +1,64 @@
+.comment-form-initial {
+	position: relative;
+	display: flex;
+	height: 140px;
+	width: 100%;
+	overflow-y: hidden;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.first-column {
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.name-input-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.name-input {
+	width: 100%;
+	outline-color: rgb(188, 188, 255);
+	border: 0.2px solid rgb(187, 187, 187);
+}
+.message-input {
+	display: flex;
+	flex-direction: column;
+	width: 75%;
+	align-items: center;
+	margin-right: 0;
+	outline-color: rgb(188, 188, 255);
+	border: 0.2px solid rgb(187, 187, 187);
+}
+
+.submit-button {
+	background-color: rgb(174, 223, 223);
+	border-radius: 10%;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	width: 5rem;
+}
+
+form label {
+	padding: 0, 0, 0.5rem 0;
+}
+
+.comments-title {
+	position: relative;
+	font-size: 2rem;
+	text-align: center;
+	padding: 0 0 0.5rem 0;
+	font-family: "Raleway", sans-serif;
+}
+
+.comment-form-initial {
+	padding: 0.5rem;
+}

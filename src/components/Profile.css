@@ -1,0 +1,12 @@
+.profile {
+	width: 15%;
+	text-align: center;
+	height: fit-content;
+	align-self: center;
+}
+
+.avatar {
+	height: 8vh;
+	width: 8vh;
+	border-radius: 100%;
+}

@@ -1,0 +1,44 @@
+.message-submitted-state {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: rgb(253, 252, 255);
+	padding: 0.5rem 0 0.2rem 0;
+
+	border: none;
+	font-family: "Raleway", sans-serif;
+	font-size: 0.9rem;
+}
+
+.content {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.interactions {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.vote-buttons {
+	display: flex;
+	justify-content: space-around;
+}
+
+.vote {
+	width: 4rem;
+}
+
+.vote-display {
+	text-align: center;
+	padding-bottom: 0.15rem;
+}
+
+.message {
+	outline: none;
+	overflow: none;
+}

@@ -1,0 +1,10 @@
+.all-messages-container {
+	width: 60vw;
+	margin: 0 auto;
+}
+
+.comment-app-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

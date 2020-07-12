@@ -1,0 +1,38 @@
+.replies {
+	cursor: pointer;
+}
+
+.replies:hover {
+	opacity: 0.8;
+}
+
+.up {
+	cursor: pointer;
+}
+.up:hover {
+	color: rgb(44, 131, 51);
+}
+
+.down {
+	cursor: pointer;
+}
+.down:hover {
+	color: rgb(158, 64, 64);
+}
+
+.red-vote {
+	color: rgb(158, 64, 64);
+}
+
+.green-vote {
+	color: rgb(44, 131, 51);
+}
+
+.reply-btn {
+	background-color: rgb(174, 223, 223);
+	border-radius: 10%;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	width: 5rem;
+}
