@@ -16,8 +16,8 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-const dbURI =
-	"mongodb://heroku_dzdjk8jx:677ir3gv1371es3527h5592i91@ds157057.mlab.com:57057/heroku_dzdjk8jx";
+// const dbURI =
+// 	"mongodb://heroku_dzdjk8jx:677ir3gv1371es3527h5592i91@ds157057.mlab.com:57057/heroku_dzdjk8jx";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,7 +25,7 @@ app.use(helmet());
 app.use(cors());
 
 mongoose
-	.connect(dbURI, {
+	.connect(MONGODB_URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
