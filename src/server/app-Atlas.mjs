@@ -15,16 +15,25 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
+const dbURI =
+	"mongodb+srv://david:begin123@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 
-mongoose.connect("mongodb://localhost:27017/commentsDB", {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	useFindAndModify: false,
-});
+mongoose
+	.connect(dbURI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false,
+	})
+	.then((result) =>
+		app.listen(process.env.PORT || 8080, () => {
+			console.log(`server started on port 3000. Connected to Atlas`);
+		})
+	)
+	.catch((err) => console.log(err));
 
 // mongoose.ObjectId.get((v) => v.toString());
 
@@ -147,8 +156,4 @@ app.post("/vote", async (req, res, error) => {
 	} catch {
 		console.log(error);
 	}
-});
-
-app.listen(process.env.PORT || 8080, () => {
-	console.log(`server started on port 3000.`);
 });
