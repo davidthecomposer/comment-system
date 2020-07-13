@@ -12,7 +12,7 @@ const AllMessagesContainer = (props) => {
 	useEffect(() => {
 		const loadAllMessagesInit = async () => {
 			try {
-				const response = await fetch("/initial", {
+				const response = await fetch("/", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

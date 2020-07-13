@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 	res.sendFile(`${__dirname}/build/index.html`);
 });
 
-app.post("/initial", async (req, res, error) => {
+app.post("/", async (req, res, error) => {
 	try {
 		const modelName = allModels[req.body.dbToQuery];
 
