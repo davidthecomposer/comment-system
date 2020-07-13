@@ -5,7 +5,6 @@ import { dirname } from "path";
 import bodyParser from "body-parser";
 import { randomProfileImage } from "./randomProfileImage.mjs";
 import helmet from "helmet";
-// import cors from "cors";
 // import buildAllNestedObjects from "./helpers.mjs";
 import {
 	createNewComment,
@@ -16,27 +15,18 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-
-const MONGODB_URI =
-	"mongodb://heroku_dzdjk8jx:677ir3gv1371es3527h5592i91@ds157057.mlab.com:57057/heroku_dzdjk8jx";
+const dbURI =
+	"mongodb+srv://david:begin123@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
-// app.use(cors());
 
-mongoose
-	.connect(process.env.MONGODB_URI, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-		useFindAndModify: false,
-	})
-	.then((result) =>
-		app.listen(process.env.PORT || 8080, () => {
-			console.log(`server started on port 3000. Connected to mLab`);
-		})
-	)
-	.catch((err) => console.log(err));
+mongoose.connect(dbURI || "mongodb://localhost:27017/commentsDB", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false,
+});
 
 // mongoose.ObjectId.get((v) => v.toString());
 
@@ -48,7 +38,7 @@ app.get("/", (req, res) => {
 	res.sendFile(`${__dirname}/build/index.html`);
 });
 
-app.post("/", async (req, res, error) => {
+app.post("/initial", async (req, res, error) => {
 	try {
 		const modelName = allModels[req.body.dbToQuery];
 
@@ -159,4 +149,8 @@ app.post("/vote", async (req, res, error) => {
 	} catch {
 		console.log(error);
 	}
+});
+
+app.listen(process.env.PORT || 8080, () => {
+	console.log(`server started on port 3000.`);
 });
