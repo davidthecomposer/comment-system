@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 const dbURI =
-	"mongodb+srv://david:begin123@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
+	"mongodb://heroku_dzdjk8jx:677ir3gv1371es3527h5592i91@ds157057.mlab.com:57057/heroku_dzdjk8jx";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
