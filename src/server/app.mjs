@@ -1,5 +1,4 @@
-import dotenv from "dotenv";
-dotenv.config();
+import "./config.mjs";
 import express from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from "url";
@@ -17,15 +16,15 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-const dbURI =
-	"mongodb+srv://david:XaZ5jMD0kjxmZCSW@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
+// const dbURI =
+// 	"mongodb+srv://david:XaZ5jMD0kjxmZCSW@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 
 mongoose
-	.connect(dbURI || "mongodb://localhost:27017/commentsDB", {
+	.connect(DB_URI || "mongodb://localhost:27017/commentsDB", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
