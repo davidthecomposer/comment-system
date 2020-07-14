@@ -12,6 +12,13 @@ import {
 	allModels,
 } from "../models/comments.mjs";
 
+const request = require("request");
+const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL });
+
+fixieRequest("http://www.example.com", (err, res, body) => {
+	console.log(`Got response: ${res.statusCode}`);
+});
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
