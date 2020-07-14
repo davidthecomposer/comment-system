@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 
-mongoose.connect(dbURI || "mongodb://localhost:27017/commentsDB", {
+await mongoose.connect(dbURI || "mongodb://localhost:27017/commentsDB", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false,
