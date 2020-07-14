@@ -1,3 +1,4 @@
+require("dotenv").config();
 import express from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from "url";
@@ -12,28 +13,26 @@ import {
 	allModels,
 } from "../models/comments.mjs";
 
-const request = require("request");
-const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL });
-
-fixieRequest("http://www.example.com", (err, res, body) => {
-	console.log(`Got response: ${res.statusCode}`);
-});
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-const dbURI =
-	"mongodb+srv://david:begin123@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 
-await mongoose.connect(dbURI || "mongodb://localhost:27017/commentsDB", {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-	useFindAndModify: false,
-});
+await mongoose
+	.connect(process.env.DB_URI || "mongodb://localhost:27017/commentsDB", {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false,
+	})
+	.then((result) =>
+		app.listen(process.env.PORT || 8080, () => {
+			console.log(`server started on port 3000.`);
+		})
+	)
+	.catch((err) => console.log(err));
 
 // mongoose.ObjectId.get((v) => v.toString());
 
@@ -156,8 +155,4 @@ app.post("/vote", async (req, res, error) => {
 	} catch {
 		console.log(error);
 	}
-});
-
-app.listen(process.env.PORT || 8080, () => {
-	console.log(`server started on port 3000.`);
 });
