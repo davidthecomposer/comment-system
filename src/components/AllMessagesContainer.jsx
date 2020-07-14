@@ -28,7 +28,6 @@ const AllMessagesContainer = (props) => {
 							(comment.date = generateDateString(new Date(comment.date)))
 					);
 					buildAllNestedObjects(allComments);
-					console.log(allComments);
 					setAllMessages(allComments);
 				}
 			} catch (err) {

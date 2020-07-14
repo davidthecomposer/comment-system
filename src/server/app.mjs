@@ -1,4 +1,5 @@
-require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from "url";
@@ -21,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 
-await mongoose
+mongoose
 	.connect(process.env.DB_URI || "mongodb://localhost:27017/commentsDB", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
@@ -44,7 +45,7 @@ app.get("/", (req, res) => {
 	res.sendFile(`${__dirname}/build/index.html`);
 });
 
-app.post("/initial", async (req, res, error) => {
+app.post("/", async (req, res, error) => {
 	try {
 		const modelName = allModels[req.body.dbToQuery];
 
