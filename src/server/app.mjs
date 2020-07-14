@@ -16,14 +16,17 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-const database = process.env.DB_URI;
+const herokuLink = process.env.DB_URI;
+console.log(herokuLink);
+const localLinkToDB =
+	"mongodb+srv://david:XaZ5jMD0kjxmZCSW@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 
 mongoose
-	.connect(database || "mongodb://localhost:27017/commentsDB", {
+	.connect(herokuLink || localLinkToDB, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
@@ -34,8 +37,6 @@ mongoose
 		})
 	)
 	.catch((err) => console.log(err));
-
-// mongoose.ObjectId.get((v) => v.toString());
 
 app.get("/ping", function (req, res) {
 	return res.send("pong");
@@ -66,7 +67,7 @@ app.post("/new", async (req, res, error) => {
 		singleMessageObject.profileImage = randomProfileImage();
 		singleMessageObject.currentVoteTally = 0;
 		singleMessageObject.allChildComments = 0;
-		console.log(singleMessageObject);
+
 		const {
 			name,
 			date,

@@ -1,2 +1,3 @@
 import dotenv from "dotenv";
-dotenv.config();
+
+console.log(dotenv.config({ debug: true }));
