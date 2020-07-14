@@ -6,7 +6,7 @@ import { dirname } from "path";
 import bodyParser from "body-parser";
 import { randomProfileImage } from "./randomProfileImage.mjs";
 import helmet from "helmet";
-// import buildAllNestedObjects from "./helpers.mjs";
+
 import {
 	createNewComment,
 	createNewReply,
@@ -16,15 +16,14 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
-// const dbURI =
-// 	"mongodb+srv://david:XaZ5jMD0kjxmZCSW@comments.olipm.mongodb.net/commentsDB?retryWrites=true&w=majority";
+const database = process.env.DB_URI;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
 
 mongoose
-	.connect(DB_URI || "mongodb://localhost:27017/commentsDB", {
+	.connect(database || "mongodb://localhost:27017/commentsDB", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
