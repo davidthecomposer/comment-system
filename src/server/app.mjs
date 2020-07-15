@@ -14,6 +14,7 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 const app = express();
 
 const localLinkToDB =
@@ -32,7 +33,8 @@ mongoose
 	})
 	.then((result) =>
 		app.listen(process.env.PORT || 8080, () => {
-			console.log(`server started on port 3000.`);
+			console.log(`server started on port 3000.`, process.env.NODE_ENV);
+			console.log(__filename, __dirname, import.meta.url);
 		})
 	)
 	.catch((err) => console.log(err));
@@ -48,7 +50,7 @@ app.get("/ping", function (req, res) {
 });
 
 app.get("/", (req, res) => {
-	res.sendFile(`${__dirname}/build/index.html`);
+	res.sendFile(`${__dirname}/index.html`);
 });
 
 app.post("/", async (req, res, error) => {
