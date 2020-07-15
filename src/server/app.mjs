@@ -36,6 +36,14 @@ mongoose
 	)
 	.catch((err) => console.log(err));
 
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.resolve(__dirname, "build")));
+
+	app.get("*", function (req, res) {
+		res.sendFile(path.join(__dirname, "build", "index.html"));
+	});
+}
+
 app.get("/ping", function (req, res) {
 	return res.send("pong");
 });
