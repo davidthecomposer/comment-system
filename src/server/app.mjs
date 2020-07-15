@@ -5,7 +5,7 @@ import { dirname } from "path";
 import bodyParser from "body-parser";
 import { randomProfileImage } from "./randomProfileImage.mjs";
 import helmet from "helmet";
-
+import cors from "cors";
 import {
 	createNewComment,
 	createNewReply,
@@ -22,6 +22,7 @@ const localLinkToDB =
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(helmet());
+app.use(cors());
 
 mongoose
 	.connect(process.env.DB_URI || localLinkToDB, {
@@ -37,7 +38,7 @@ mongoose
 	.catch((err) => console.log(err));
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static("__dirname/build"));
+	app.use(express.static(`${__dirname}/build`));
 
 	console.log("using static");
 }
