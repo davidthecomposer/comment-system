@@ -33,14 +33,14 @@ mongoose
 	})
 	.then((result) =>
 		app.listen(process.env.PORT || 8080, () => {
-			console.log(`server started on port 3000.`, process.env.NODE_ENV);
+			console.log(`server started on port 3000.`, process.env.DB_URI);
 			console.log(__filename, __dirname, import.meta.url);
 		})
 	)
 	.catch((err) => console.log(err));
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(`${__dirname}/build`));
+	app.use(express.static(`${__dirname}`));
 
 	console.log("using static");
 }
