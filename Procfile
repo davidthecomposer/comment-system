@@ -1,1 +1,1 @@
-web: node app.mjs
+web: bin/boot
