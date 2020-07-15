@@ -33,8 +33,6 @@
 
 // searchByIdAndInsertReply(message, 4, reply);
 
-// console.log(message);
-
 // const allComments = [
 // 	{
 // 		_id: "5f0656af7ec73a2fc4534113",
