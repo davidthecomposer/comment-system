@@ -111,6 +111,4 @@ const buildAllNestedObjects = (arr) => {
 	}
 };
 
-// console.log(buildAllNestedObjects(allComments));
-
 export default buildAllNestedObjects;
