@@ -1,7 +1,8 @@
+import "dotenv/config.js";
 import express from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from "url";
-import { dirname } from "path";
+import path, { dirname } from "path";
 import bodyParser from "body-parser";
 import { randomProfileImage } from "./randomProfileImage.mjs";
 import helmet from "helmet";
@@ -10,10 +11,10 @@ import {
 	createNewComment,
 	createNewReply,
 	allModels,
-} from "../models/comments.mjs";
+} from "./models/comments.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = dirname(path.join(__filename, "..", "..", "package.json"));
 
 const app = express();
 
@@ -32,9 +33,9 @@ mongoose
 		useFindAndModify: false,
 	})
 	.then((result) =>
-		app.listen(process.env.PORT || 8080, () => {
-			console.log(`server started on port 3000.`, process.env.DB_URI);
-			console.log(__filename, __dirname, import.meta.url);
+		app.listen(process.env.PORT || 3000, () => {
+			console.log(`server started on port 8080.`);
+			console.log(__dirname);
 		})
 	)
 	.catch((err) => console.log(err));
@@ -49,9 +50,9 @@ app.get("/ping", function (req, res) {
 	return res.send("pong");
 });
 
-app.get("/", (req, res) => {
-	res.sendFile(`${__dirname}/build/index.html`);
-});
+// app.get("/", (req, res) => {
+// 	res.sendFile(`${__dirname}/build/index.html`);
+// });
 
 app.post("/", async (req, res, error) => {
 	try {
