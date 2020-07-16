@@ -40,7 +40,7 @@ mongoose
 	.catch((err) => console.log(err));
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(`${__dirname}`));
+	app.use(express.static(`${__dirname}/build`));
 
 	console.log("using static");
 }
@@ -50,7 +50,7 @@ app.get("/ping", function (req, res) {
 });
 
 app.get("/", (req, res) => {
-	res.sendFile(`${__dirname}/index.html`);
+	res.sendFile(`${__dirname}/build/index.html`);
 });
 
 app.post("/", async (req, res, error) => {
