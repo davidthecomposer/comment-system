@@ -34,7 +34,7 @@ mongoose
 	})
 	.then((result) =>
 		app.listen(process.env.PORT || 8080, () => {
-			console.log(`server started on port 3000.`);
+			console.log(`server started on port 8080.`);
 		})
 	)
 	.catch((err) => console.log(err));
