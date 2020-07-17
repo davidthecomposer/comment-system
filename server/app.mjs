@@ -33,9 +33,8 @@ mongoose
 		useFindAndModify: false,
 	})
 	.then((result) =>
-		app.listen(process.env.PORT || 3000, () => {
-			console.log(`server started on port 8080.`);
-			console.log(__dirname);
+		app.listen(process.env.PORT, "0.0.0.0" || 3000, () => {
+			console.log(`server started on port 3000.`);
 		})
 	)
 	.catch((err) => console.log(err));
@@ -49,10 +48,6 @@ if (process.env.NODE_ENV === "production") {
 app.get("/ping", function (req, res) {
 	return res.send("pong");
 });
-
-// app.get("/", (req, res) => {
-// 	res.sendFile(`${__dirname}/build/index.html`);
-// });
 
 app.post("/", async (req, res, error) => {
 	try {
