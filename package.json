@@ -3,10 +3,14 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@babel/plugin-transform-runtime": "^7.10.5",
+		"@babel/runtime": "^7.10.5",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.5.0",
 		"@testing-library/user-event": "^7.2.1",
+		"babel-plugin-bundled-import-meta": "^0.3.2",
 		"body-parser": "^1.19.0",
+		"core-js": "^3.6.5",
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
@@ -16,10 +20,11 @@
 		"nodemon": "^2.0.4",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
-		"react-scripts": "3.4.1"
+		"react-scripts": "3.4.1",
+		"regenerator-runtime": "^0.13.5"
 	},
 	"scripts": {
-		"start": "cd lib && nodemon App.mjs",
+		"start": "cd server && nodemon App.js",
 		"build": "react-scripts build && babel server -d lib",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
@@ -45,6 +50,7 @@
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.10.5",
-		"@babel/core": "^7.10.5"
+		"@babel/core": "^7.10.5",
+		"babel-plugin-module-extension": "^0.1.3"
 	}
 }
