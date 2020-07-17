@@ -19,7 +19,7 @@
 		"react-scripts": "3.4.1"
 	},
 	"scripts": {
-		"start": "cd server && nodemon App.mjs",
+		"start": "cd lib && nodemon App.mjs",
 		"build": "react-scripts build && babel server -d lib",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
