@@ -1,22 +1,22 @@
-{
-	"presets": ["@babel/preset-env"],
-	"plugins": [
-		["@babel/transform-runtime"],
-		[
-			"module-extension",
-			{
-				"mjs": "js",
-				"cjs": "js"
-			}
-		],
-		[
-			"bundled-import-meta",
-			{
-				"mappings": {
-					"node_modules": "/assets"
-				},
-				"bundleDir": "html"
-			}
-		]
-	]
-}
+// {
+// 	"presets": ["@babel/preset-env"],
+// 	"plugins": [
+// 		["@babel/transform-runtime"],
+// 		[
+// 			"module-extension",
+// 			{
+// 				"mjs": "js",
+// 				"cjs": "js"
+// 			}
+// 		],
+// 		[
+// 			"bundled-import-meta",
+// 			{
+// 				"mappings": {
+// 					"node_modules": "/assets"
+// 				},
+// 				"bundleDir": "html"
+// 			}
+// 		]
+// 	]
+// }
