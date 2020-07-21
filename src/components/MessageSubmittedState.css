@@ -42,3 +42,8 @@
 	outline: none;
 	overflow: none;
 }
+@media screen and (max-width: 800px) {
+	.message-submitted-state {
+		font-size: 0.7rem;
+	}
+}

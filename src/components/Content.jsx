@@ -32,7 +32,7 @@ const Content = ({
 					<i className='comment outline icon'></i>
 					{`${(comment.replies || []).length}`}
 				</p>
-				<p onClick={handleAllRepliesPress}>
+				<p className='all-replies' onClick={handleAllRepliesPress}>
 					<i className='comments outline icon'></i>
 					{comment.allChildComments}
 				</p>

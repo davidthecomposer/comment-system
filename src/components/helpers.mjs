@@ -33,7 +33,7 @@
 
 // searchByIdAndInsertReply(message, 4, reply);
 
-// const allComments = [
+// export const placeHolderComments = [
 // 	{
 // 		_id: "5f0656af7ec73a2fc4534113",
 // 		replies: [],

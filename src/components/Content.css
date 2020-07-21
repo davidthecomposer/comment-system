@@ -1,8 +1,13 @@
-.replies {
+.replies,
+.all-replies {
 	cursor: pointer;
 }
 
 .replies:hover {
+	opacity: 0.8;
+}
+
+.all-replies:hover {
 	opacity: 0.8;
 }
 
@@ -35,4 +40,10 @@
 	outline: none;
 	cursor: pointer;
 	width: 5rem;
+}
+
+@media screen and (max-width: 800px) {
+	.reply-btn {
+		width: 3rem;
+	}
 }

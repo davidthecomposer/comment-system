@@ -10,3 +10,11 @@
 	width: 8vh;
 	border-radius: 100%;
 }
+
+@media screen and (max-width: 800px) {
+	.avatar {
+		height: 8vw;
+		width: 8vw;
+		border-radius: 100%;
+	}
+}
