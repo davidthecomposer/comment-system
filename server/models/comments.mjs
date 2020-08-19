@@ -81,7 +81,7 @@ const createNewReply = async (
 			allChildComments: allChildComments,
 			replies: [],
 		});
-	} catch {
+	} catch (error) {
 		console.log(error);
 	}
 };
