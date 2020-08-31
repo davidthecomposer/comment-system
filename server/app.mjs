@@ -65,7 +65,7 @@ app.post("/", async (req, res, error) => {
 app.post("/new", async (req, res, error) => {
 	try {
 		const modelName = allModels[req.body.dbToQuery];
-
+		console.log(modelName);
 		const singleMessageObject = req.body;
 		singleMessageObject.profileImage = randomProfileImage();
 		singleMessageObject.currentVoteTally = 0;
